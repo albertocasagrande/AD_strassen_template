@@ -1,7 +1,7 @@
 # DSSC - Algorithmic Design - Strassen's Algorithm
 This repository contains some code to simplify the implementation and the testing of the Strassen's algorithm for matrix multiplication.
 
-In order to test the differences in term of execution-time between the naive algorithm and the Strassen's algorithm, you need to implement both the algorithms. The former must be implementated by the function `naive_matrix_multiplication` in the file [matrix.c]() and the latter by the function `strassen_matrix_multiplication` in the file [strassen.c]().
+In order to test the differences in term of execution-time between the naive algorithm and the Strassen's algorithm, you need to implement both the algorithms. The former must be implementated by the function `naive_matrix_multiplication` in the file [matrix.c](matrix.c) and the latter by the function `strassen_matrix_multiplication` in the file [strassen.c](strassen.c).
 
 A Makefile can be produced by using [cmake](https://cmake.org/) as follows:
 ```bash
