@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
   float **C1 = allocate_matrix(n, n);
 
 
-  printf("n\tNaive Alg.\tStrassen's Alg.\tSame result\n");
+  printf("n\tStrassen's Alg.\tNaive Alg.\tSame result\n");
   for (size_t j = 1; j <= n; j *= 2) {
 
     printf("%ld", j);
