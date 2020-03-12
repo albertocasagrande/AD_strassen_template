@@ -16,13 +16,16 @@ int main(int argc, char *argv[]) {
   printf("n\tStrassen's Alg.\tNaive Alg.\tSame result\n");
   for (size_t j = 1; j <= n; j *= 2) {
 
-    printf("%ld", j);
- 
-    printf("\t%lf", test(strassen_matrix_multiplication, C1, A, B, j));
-    printf("\t%lf", test(naive_matrix_multiplication, C0, A, B, j));
+    printf("%ld\t", j);
+    fflush(stdout);
 
-    printf("\t%d\n", same_matrix((float const *const *const)C0,
-                                 (float const *const *const)C1, j, j));
+    printf("%lf\t", test(strassen_matrix_multiplication, C1, A, B, j));
+    fflush(stdout);
+    printf("%lf\t", test(naive_matrix_multiplication, C0, A, B, j));
+    fflush(stdout);
+  
+    printf("%d\n", same_matrix((float const *const *const)C0,
+                               (float const *const *const)C1, j, j));
   }
 
   deallocate_matrix(A, n);
