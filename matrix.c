@@ -7,7 +7,16 @@ void naive_matrix_multiplication(float **C, float const *const *const A,
                                 float const *const *const B,
                                 const size_t n) 
 {
-  // IMPLEMENT THE NAIVE ALGORITHM HERE
+  for (size_t y = 0; y < n; y++) {
+    for (size_t x = 0; x < n; x++) {
+      float value = 0.0;
+      for (size_t z = 0; z < n; z++) {
+        value += A[y][z]*B[z][x];
+      }
+
+      C[y][x] = value;
+    }
+  }
 }
 
 int same_matrix(float const *const *const A, float const *const *const B,
