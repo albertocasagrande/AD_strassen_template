@@ -5,7 +5,7 @@ In order to test the differences in term of execution-time between the naive alg
 
 A Makefile can be produced by using [cmake](https://cmake.org/) as follows:
 ```bash
-cmake -G "Unix Makefile" CMakeLists.txt
+cmake -G "Unix Makefiles" CMakeLists.txt
 ```
 Afterwards you can compile the code by executing `make`. This produces an executable named `strassen_test` which can be executed in POSIX systems by using the command:
 ```bash
