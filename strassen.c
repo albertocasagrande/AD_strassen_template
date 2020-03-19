@@ -287,7 +287,7 @@ void strassen_aux(float **C, float const *const *const A,
                       0, 0,
                       n2);
     
-    for (size_t i = 0; i < 2; i++) {
+    for (size_t i = 0; i < 10; i++) {
       deallocate_matrix(S[i], n2);
     }
     free(S);
