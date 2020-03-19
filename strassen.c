@@ -72,7 +72,7 @@ void naive_aux(float **C, float const *const *const A,
 }
 
 /*
- * this function implements the Strassen's algorithm
+ * This function implements the Strassen's algorithm
  * for matrix multiplication between sub-matrixes.
  * The result is placed in the sub-matrix C.
  * The parameters *_f_row and *_f_col
@@ -245,7 +245,7 @@ void strassen_aux(float **C, float const *const *const A,
                       0, 0,
                       n2);
     sum_matrix_blocks(C, (const float* const *const) C,
-                      (const float* const *const) P[1],
+                      (const float* const *const) P[5],
                       C_f_row, C_f_col,
                       C_f_row, C_f_col,
                       0, 0,
@@ -270,22 +270,32 @@ void strassen_aux(float **C, float const *const *const A,
     // C22 = P5 + P1 - P3 - P7
     sum_matrix_blocks(C, (const float* const *const) P[4],
                       (const float* const *const) P[0],
-                      C_f_row, C_f_col,
+                      C_f_row+n2, C_f_col+n2,
                       0, 0,
                       0, 0,
                       n2);
     sub_matrix_blocks(C, (const float* const *const) C,
                       (const float* const *const) P[2],
-                      C_f_row, C_f_col,
-                      C_f_row, C_f_col,
+                      C_f_row+n2, C_f_col+n2,
+                      C_f_row+n2, C_f_col+n2,
                       0, 0,
                       n2);
     sub_matrix_blocks(C, (const float* const *const) C,
                       (const float* const *const) P[6],
-                      C_f_row, C_f_col,
-                      C_f_row, C_f_col,
+                      C_f_row+n2, C_f_col+n2,
+                      C_f_row+n2, C_f_col+n2,
                       0, 0,
                       n2);
+    
+    for (size_t i = 0; i < 2; i++) {
+      deallocate_matrix(S[i], n2);
+    }
+    free(S);
+    
+    for (size_t i = 0; i < 7; i++) {
+      deallocate_matrix(P[i], n2);
+    }
+    free(P);   
 }
 
 
